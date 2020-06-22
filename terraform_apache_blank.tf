@@ -8,12 +8,7 @@ resource "aws_instance" "web_server" {
   ami                    = "ami-0e342d72b12109f91"
   instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.sec_web.id]
-  user_data              = <<EOF
-#!/bin/bash
-sudo apt-get -y update
-sudo apt-get -y upgrade
-sudo apt-get -y install apache2
-EOF
+  user_data              = file("user_data.sh")
 
   tags = {
     Name    = "web_server"
