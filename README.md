@@ -1,1 +1,1 @@
-# epam_terraform
+# Terraform samples by me for traning
